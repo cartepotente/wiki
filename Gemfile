@@ -19,6 +19,8 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem 'hirb'
+
 gem 'simple_form'
 
 # Use jquery as the JavaScript library

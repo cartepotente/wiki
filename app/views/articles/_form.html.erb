@@ -1,0 +1,34 @@
+<%= simple_form_for(@art, html: { class: 'form-horizontal' }) do |f| %>
+
+<% if @art.errors.any? %>
+    <div id="errors">
+      <h2><%= pluralize(@art.errors.count, "error") %> Prohíbe guardar los datos:</h2>
+
+      <ul>
+      <% @art.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div class="dropdown">
+   <%=f.collection_select :categ_id, Categorium.all, :id, :name,{promt: "escoge la categoria"}, input_html:{class:"dropdown"} %>
+  </div>
+
+	<div class="form-group">
+	 <%=f.input :titulo, input_html:{class: 'form-control'} %>
+	</div>		
+
+	<div class="form-group">
+	 <%=f.input :content, input_html:{class: 'form-control'} %>
+	</div>
+
+	<%= f.button :submit, class: "btn btn-primary" %>
+
+
+
+
+<% end %>

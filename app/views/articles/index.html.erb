@@ -1,0 +1,19 @@
+<h1>index prueba</h1>
+
+<% @arts.each do |a| %>
+
+<h1> <%= link_to a.titulo, a %></h1>
+<p>
+Publicado el 
+
+<%= a.created_at.strftime('%b %d, %Y') %>
+<br>
+<%= truncate(a.content, length: 200) %>
+
+
+</p>
+
+
+<% end %>
+
+<%= link_to "Nuevo", new_article_path  %>

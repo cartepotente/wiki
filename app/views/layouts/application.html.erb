@@ -7,8 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render 'layouts/nav' %>
 
-<%= yield %>
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-md-9">
+
+			<%= yield %>
+
+		</div>
+
+		<div class="col-md-3">
+
+			<ul class="list-group">
+				<li> <%= link_to "Todos", root_path, class: "list-group-item" %></li>
+				
+			<% Categorium.all.each do |c| %>
+
+			<li><%= link_to c.name, articles_path(categorium: c.name), class: "list-group-item" %></li>
+			<% end %>
+
+			</ul>
+
+		</div>
+
+	</div>
+</div>
 
 </body>
 </html>
